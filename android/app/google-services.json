@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "688384484982",
+    "project_id": "phulkuri",
+    "storage_bucket": "phulkuri.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:688384484982:android:049247cca9b44227c6e157",
+        "android_client_info": {
+          "package_name": "com.example.phulkuri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "688384484982-hj2nt1k45lsdnob88d7andg7bv99mt5r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdpEzW_pX9u3nV-SSeE0nJYtJEdc8vWr8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "688384484982-hj2nt1k45lsdnob88d7andg7bv99mt5r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

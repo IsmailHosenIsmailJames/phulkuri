@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>95856586450-ae62sl8doop4lfk15fg1sqoamke2tdai.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.95856586450-ae62sl8doop4lfk15fg1sqoamke2tdai</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDJLnaUpxnlym460cSi0hYp930H9F5-kiU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>95856586450</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.phulkuri.RunnerTests</string>
+	<key>PROJECT_ID</key>
+	<string>developersunited</string>
+	<key>STORAGE_BUCKET</key>
+	<string>developersunited.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:95856586450:ios:ce466ea62d54ac33d7070b</string>
+	<key>DATABASE_URL</key>
+	<string>https://developersunited-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>
