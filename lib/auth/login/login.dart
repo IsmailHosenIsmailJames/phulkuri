@@ -161,7 +161,7 @@ class _LogInState extends State<LogIn> {
                                 );
                               },
                               child: const Text(
-                                "SignUp",
+                                "Sign Up",
                                 style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
