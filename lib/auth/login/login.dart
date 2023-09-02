@@ -1,5 +1,8 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:phulkuri/auth/init.dart';
 import 'package:phulkuri/auth/signin/signin.dart';
 import 'package:phulkuri/theme/change_button_theme.dart';
 
@@ -18,7 +21,26 @@ class _LogInState extends State<LogIn> {
 
   void logIn() async {
     if (validationKey.currentState!.validate()) {
-      // TO DO
+      // TO DO : login on firebase
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: email.text.trim(), password: password.text);
+        // ignore: use_build_context_synchronously
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const InIt(),
+            ),
+            (route) => false);
+      } on FirebaseAuthException catch (e) {
+        Fluttertoast.showToast(
+          msg: e.message!,
+          fontSize: 16,
+          textColor: Colors.red,
+          toastLength: Toast.LENGTH_LONG,
+          timeInSecForIosWeb: 5,
+        );
+      }
     }
   }
 

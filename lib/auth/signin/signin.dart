@@ -1,8 +1,12 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:phulkuri/auth/login/login.dart';
 
 import '../../theme/change_button_theme.dart';
+import '../init.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -23,7 +27,30 @@ class _SignInState extends State<SignIn> {
 
   void signUp() async {
     if (signUpValidationKey.currentState!.validate()) {
-      // TO DO
+      // TO DO : sign in with email and password and store data on firestore
+      try {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: email.text.trim(), password: password.text);
+        await FirebaseDatabase.instance
+            .ref(
+                '/userData/name/${email.text.replaceAll('.', ",").replaceAll("@", "")}/')
+            .set(name.text);
+        // ignore: use_build_context_synchronously
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const InIt(),
+            ),
+            (route) => false);
+      } on FirebaseAuthException catch (e) {
+        Fluttertoast.showToast(
+          msg: e.message!,
+          fontSize: 16,
+          textColor: Colors.red,
+          toastLength: Toast.LENGTH_LONG,
+          timeInSecForIosWeb: 5,
+        );
+      }
     }
   }
 
@@ -91,7 +118,7 @@ class _SignInState extends State<SignIn> {
                               return "আপনার নামটি সঠিক নয় ...";
                             }
                           },
-                          controller: email,
+                          controller: name,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(

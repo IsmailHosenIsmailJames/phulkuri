@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '688384484982',
     projectId: 'phulkuri',
     authDomain: 'phulkuri.firebaseapp.com',
+    databaseURL: 'https://phulkuri-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'phulkuri.appspot.com',
     measurementId: 'G-PWW5KWWJT5',
   );
@@ -58,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:688384484982:android:049247cca9b44227c6e157',
     messagingSenderId: '688384484982',
     projectId: 'phulkuri',
+    databaseURL: 'https://phulkuri-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'phulkuri.appspot.com',
   );
 
@@ -66,6 +68,7 @@ class DefaultFirebaseOptions {
     appId: '1:688384484982:ios:73684a553d55f884c6e157',
     messagingSenderId: '688384484982',
     projectId: 'phulkuri',
+    databaseURL: 'https://phulkuri-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'phulkuri.appspot.com',
     iosClientId: '688384484982-srcip6lo27v7amqvodcei9iqcodjhnpk.apps.googleusercontent.com',
     iosBundleId: 'com.example.phulkuri',
@@ -76,6 +79,7 @@ class DefaultFirebaseOptions {
     appId: '1:688384484982:ios:d60394d0a91e761cc6e157',
     messagingSenderId: '688384484982',
     projectId: 'phulkuri',
+    databaseURL: 'https://phulkuri-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'phulkuri.appspot.com',
     iosClientId: '688384484982-1fcgqirursmuj0ugcue6m7khk5mihncc.apps.googleusercontent.com',
     iosBundleId: 'com.example.phulkuri.RunnerTests',
