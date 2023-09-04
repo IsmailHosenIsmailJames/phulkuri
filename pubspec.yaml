@@ -38,7 +38,6 @@ dependencies:
   firebase_core: ^2.15.0
   firebase_auth: ^4.9.0
   email_validator: ^2.1.17
-  provider: ^6.0.5
   file_picker: ^5.3.3
   firebase_storage: ^11.2.5
   fluttertoast: ^8.2.2
@@ -46,6 +45,7 @@ dependencies:
   path_provider: ^2.1.1
   hive: ^2.2.3
   firebase_database: ^10.2.5
+  bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:

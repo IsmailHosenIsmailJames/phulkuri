@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../core/show_toast.dart';
 import 'my_colors_icons.dart';
 import 'theme_storage_manager.dart';
-import 'theme_provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../theme/cubit/theme_cubit.dart';
 
 class ChangeThemeButtonWidget extends StatelessWidget {
   final int value;
   const ChangeThemeButtonWidget({super.key, required this.value});
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
+    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: true);
     bool oneTimeTry = true;
     if (value == 1 && oneTimeTry) {
       oneTimeTry = false;
       try {
         StorageManager.readData('themeMode').then((value) {
           if (value == "system") {
-            final provider = Provider.of<ThemeProvider>(context, listen: false);
-            provider.toggleTheme(0);
+            theme.changeTheme(0);
           } else if (value == "light") {
-            final provider = Provider.of<ThemeProvider>(context, listen: false);
-            provider.toggleTheme(1);
+            theme.changeTheme(1);
           } else {
-            final provider = Provider.of<ThemeProvider>(context, listen: false);
-            provider.toggleTheme(-1);
+            theme.changeTheme(-1);
           }
         });
       } catch (e) {
@@ -38,18 +36,15 @@ class ChangeThemeButtonWidget extends StatelessWidget {
         backgroundColor: Colors.black,
       ),
       onPressed: () {
-        if (themeProvider.themeValue == 0) {
-          final provider = Provider.of<ThemeProvider>(context, listen: false);
-          provider.toggleTheme(-1);
-        } else if (themeProvider.themeValue < 0) {
-          final provider = Provider.of<ThemeProvider>(context, listen: false);
-          provider.toggleTheme(1);
+        if (theme.themeMode == ThemeMode.system) {
+          theme.changeTheme(-1);
+        } else if (theme.themeMode == ThemeMode.dark) {
+          theme.changeTheme(1);
         } else {
-          final provider = Provider.of<ThemeProvider>(context, listen: false);
-          provider.toggleTheme(0);
+          theme.changeTheme(0);
         }
       },
-      icon: themeProvider.themeIcon,
+      icon: theme.icon,
     );
   }
 }

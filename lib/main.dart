@@ -1,12 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:phulkuri/auth/init.dart';
-import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
-import 'theme/theme_provider.dart';
+import 'theme/cubit/theme_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,7 +15,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    MultiBlocProvider(
+      providers: [BlocProvider(create: (coontext) => ThemeCubit())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -23,17 +28,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
-      builder: (context, _) {
-        final themeProvider = Provider.of<ThemeProvider>(context);
-        return MaterialApp(
-          darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.green),
-          theme: ThemeData.light(),
-          themeMode: themeProvider.themeMode,
-          home: const InIt(),
-        );
-      },
+    ThemeCubit theme = BlocProvider.of<ThemeCubit>(context, listen: true);
+    return MaterialApp(
+      darkTheme: ThemeData.dark().copyWith(primaryColor: Colors.green),
+      theme: ThemeData.light(),
+      themeMode: theme.themeMode,
+      home: const InIt(),
     );
   }
 }
